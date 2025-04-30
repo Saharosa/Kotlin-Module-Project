@@ -1,6 +1,4 @@
-import kotlin.system.exitProcess
-
-class ScreenOfNote(val notesScreen: NotesScreen) : ScreenPrototype(){
+class ScreenOfNote(private val notesScreen: NotesScreen) : ScreenPrototype(){
      fun display(note: Note) {
          println("\n${note.title}\n${note.text}")
          println("\n1. Выход")
