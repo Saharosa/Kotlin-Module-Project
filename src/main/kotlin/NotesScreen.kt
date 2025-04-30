@@ -4,9 +4,8 @@ class NotesScreen(private val archiveScreen: ArchiveScreen,var createNoteScreen:
         val notes = archive!!.notes
         createNoteScreen!!.notes = notes
         val size = notes.size
-        println("\nЗаметки архива ${archive!!.title}:\n1. Создать заметку")
-        putList<Note>(notes)
-        println("${size+2}. Выход")
+        println("\nЗаметки архива ${archive!!.title}:\n")
+        putMenu<Note>(notes)
         val choise = readLine()
         when(choise?.toIntOrNull()){
             1->createNoteScreen?.display()

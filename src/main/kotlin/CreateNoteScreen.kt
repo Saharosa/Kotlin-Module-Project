@@ -6,17 +6,14 @@ class CreateNoteScreen(val notesScreen: NotesScreen): ScreenPrototype(){
             field = value
         }
     override fun display() {
-        println("\nВведите имя заметки\n1. Выход")
-        var title = getTitle()
-        when(title?.toIntOrNull()){
+        println("\nВведите имя заметки")
+        putExit()
+        var title = getText()
+        when(title.toIntOrNull()){
             1->notesScreen.display()
             else -> {
                 println("Введите текст для заметки")
-                var text = Scanner(System.`in`).nextLine()
-                while(title==null){
-                    println("Содержание заметки не может быть пустым")
-                    text = Scanner(System.`in`).nextLine()
-                }
+                var text = getText()
                 if(notes!!.add(Note(title,text))) println("Заметка $title успешно добавлен")
                 else println("Что то пошло не так")
                 notesScreen.display()
